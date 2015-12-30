@@ -1,0 +1,31 @@
+﻿@model MvcApplication1.Models.Artist
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Artist</legend>
+
+    <strong><span class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </span>:&nbsp</strong>
+    <span class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </span>
+</fieldset>
+<fieldset>
+    <legend>Albums</legend>
+    <ul>
+        @foreach (var album in Model.Albums)
+        {
+            <li>@album.Title</li>
+        }
+    </ul>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ArtistID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
